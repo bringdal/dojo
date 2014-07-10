@@ -1,4 +1,4 @@
-package service;
+package data;
 
 /**
  * Created by g.dromer on 11/04/2014.
