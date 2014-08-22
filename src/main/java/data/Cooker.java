@@ -5,16 +5,16 @@ package data;
  */
 public class Cooker {
 
-    private Fire fire;
+    private Hob hob;
     private Oven oven ;
 
-    public Cooker(Fire fire, Oven oven) {
-        this.fire = fire;
+    public Cooker(Hob hob, Oven oven) {
+        this.hob = hob;
         this.oven = oven;
     }
 
-    public Fire getFire() {
-        return fire;
+    public Hob getHob() {
+        return hob;
     }
 
     public Oven getOven() {
