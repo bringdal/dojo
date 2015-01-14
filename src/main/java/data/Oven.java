@@ -7,6 +7,7 @@ public class Oven {
 
     private String brand ;
     private PowerType powerType ;
+    private boolean working = false ;
 
     public Oven(String brand, PowerType powerType) {
         this.brand = brand;
@@ -21,4 +22,11 @@ public class Oven {
         return powerType;
     }
 
+    public boolean isWorking() {
+        return working;
+    }
+
+    public void setWorking(boolean working) {
+        this.working = working;
+    }
 }

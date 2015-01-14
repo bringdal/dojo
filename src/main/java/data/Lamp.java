@@ -9,10 +9,11 @@ public class Lamp {
     private Bulb bulb;
     private boolean power;
     private LampType type;
+    private boolean working = false ;
 
-    public Lamp(BulbType bulbType, boolean power, LampType type, Color color, int floor, Room room) {
-        this.bulb = new Bulb(color, bulbType) ;
+    public Lamp(Bulb bulb, BulbType bulbType, boolean power, LampType type, Color color, int floor, Room room) {
         bulb.setSwitchedOn(power);
+        this.bulb = bulb ;
         this.power = power;
         this.type = type;
     }
@@ -32,5 +33,13 @@ public class Lamp {
     public void setPower(boolean power) {
         this.power = power;
         bulb.setSwitchedOn(power);
+    }
+
+    public boolean isWorking() {
+        return working;
+    }
+
+    public void setWorking(boolean working) {
+        this.working = working;
     }
 }

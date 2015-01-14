@@ -6,6 +6,7 @@ package data;
 public class Refrigerator {
 
     private PowerType powerType ;
+    private boolean working = false ;
 
     public Refrigerator() {
         powerType = PowerType.ELECTRICITY ;
@@ -15,4 +16,11 @@ public class Refrigerator {
         return powerType;
     }
 
+    public boolean isWorking() {
+        return working;
+    }
+
+    public void setWorking(boolean working) {
+        this.working = working;
+    }
 }

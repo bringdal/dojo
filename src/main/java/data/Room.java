@@ -1,34 +1,46 @@
 package data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by g.dromer on 09/04/14.
  */
 public class Room {
 
     private Alarm alarm ;
-    private Cooker cooker ;
-    private Lamp lamp ;
-    private Refrigerator refrigerator ;
     private int floor;
+    private List<Cooker> cookers = new ArrayList<Cooker>();
+    private List<Lamp> lamps = new ArrayList<Lamp>();
+    private List<Refrigerator> refrigerators = new ArrayList<Refrigerator>();
 
-    public Room(Alarm alarm, Cooker cooker, Lamp lamp, Refrigerator refrigerator, int floor) {
+    public Room(Alarm alarm, int floor) {
         this.alarm = alarm;
-        this.cooker = cooker;
-        this.lamp = lamp;
-        this.refrigerator = refrigerator;
         this.floor = floor;
     }
 
-    public Cooker getCooker() {
-        return cooker;
+    public List<Cooker> getCookers() {
+        return cookers;
     }
 
-    public Lamp getLamp() {
-        return lamp;
+    public void addCooker(Cooker cooker) {
+        cookers.add(cooker);
     }
 
-    public Refrigerator getRefrigerator() {
-        return refrigerator;
+    public List<Lamp> getLamps() {
+        return lamps;
+    }
+
+    public void addLamp(Lamp lamp) {
+        lamps.add(lamp);
+    }
+
+    public List<Refrigerator> getRefrigerators() {
+        return refrigerators;
+    }
+
+    public void addRefrigerators(Refrigerator refrigerator) {
+        refrigerators.add(refrigerator);
     }
 
     public Alarm getAlarm() {

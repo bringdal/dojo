@@ -5,12 +5,11 @@ package data;
  */
 public class Bulb {
 
-    private boolean switchedOn ;
+    private boolean switchedOn = false ;
     private BulbType type ;
     private Color color;
 
     public Bulb(Color color, BulbType type) {
-        setSwitchedOn(false) ;
         this.color = color;
         this.type = type;
     }

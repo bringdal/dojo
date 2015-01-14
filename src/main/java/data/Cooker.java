@@ -7,6 +7,7 @@ public class Cooker {
 
     private Hob hob;
     private Oven oven ;
+    private boolean working = false ;
 
     public Cooker(Hob hob, Oven oven) {
         this.hob = hob;
@@ -19,5 +20,13 @@ public class Cooker {
 
     public Oven getOven() {
         return oven;
+    }
+
+    public boolean isWorking() {
+        return working;
+    }
+
+    public void setWorking(boolean working) {
+        this.working = working;
     }
 }
