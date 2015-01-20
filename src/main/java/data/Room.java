@@ -3,52 +3,57 @@ package data;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by g.dromer on 09/04/14.
- */
 public class Room {
 
+    private String name ;
     private Alarm alarm ;
     private int floor;
-    private List<Cooker> cookers = new ArrayList<Cooker>();
-    private List<Lamp> lamps = new ArrayList<Lamp>();
-    private List<Refrigerator> refrigerators = new ArrayList<Refrigerator>();
+    private List<Item> items = new ArrayList<Item>() ;
 
-    public Room(Alarm alarm, int floor) {
+    public Room(String name, Alarm alarm, int floor) {
+        this.name = name;
         this.alarm = alarm;
         this.floor = floor;
     }
 
-    public List<Cooker> getCookers() {
-        return cookers;
+    public String getName() {
+        return name;
     }
 
-    public void addCooker(Cooker cooker) {
-        cookers.add(cooker);
-    }
-
-    public List<Lamp> getLamps() {
-        return lamps;
-    }
-
-    public void addLamp(Lamp lamp) {
-        lamps.add(lamp);
-    }
-
-    public List<Refrigerator> getRefrigerators() {
-        return refrigerators;
-    }
-
-    public void addRefrigerators(Refrigerator refrigerator) {
-        refrigerators.add(refrigerator);
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Alarm getAlarm() {
         return alarm;
     }
 
+    public void setAlarm(Alarm alarm) {
+        this.alarm = alarm;
+    }
+
     public int getFloor() {
         return floor;
+    }
+
+    public void setFloor(int floor) {
+        this.floor = floor;
+    }
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }
+
+    public void addItem(Item item) {
+        this.items.add(item) ;
+    }
+
+    public void removeItem(Item item) {
+        this.items.remove(item) ;
     }
 
 }

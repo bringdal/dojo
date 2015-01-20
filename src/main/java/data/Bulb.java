@@ -1,8 +1,5 @@
 package data;
 
-/**
- * Created by g.dromer on 09/04/14.
- */
 public class Bulb {
 
     private boolean switchedOn = false ;

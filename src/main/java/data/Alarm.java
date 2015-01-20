@@ -1,11 +1,8 @@
 package data;
 
-/**
- * Created by g.dromer on 09/04/14.
- */
 public class Alarm {
 
-    private boolean screaming ;
+    private boolean screaming  ;
 
     public Alarm() {
         this.screaming = false;
@@ -16,5 +13,9 @@ public class Alarm {
 
     public boolean isScreaming() {
         return screaming;
+    }
+
+    public void setScreaming(boolean screaming) {
+        this.screaming = screaming;
     }
 }

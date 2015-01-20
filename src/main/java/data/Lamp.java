@@ -1,9 +1,5 @@
 package data;
 
-/**
- * Created by g.dromer on 09/04/14.
- */
-
 public class Lamp {
 
     private Bulb bulb;
@@ -11,7 +7,7 @@ public class Lamp {
     private LampType type;
     private boolean working = false ;
 
-    public Lamp(Bulb bulb, BulbType bulbType, boolean power, LampType type, Color color, int floor, Room room) {
+    public Lamp(Bulb bulb, boolean power, LampType type, int floor, Room room) {
         bulb.setSwitchedOn(power);
         this.bulb = bulb ;
         this.power = power;

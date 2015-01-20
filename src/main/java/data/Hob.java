@@ -1,26 +1,44 @@
 package data;
 
-import java.util.Map;
+import org.springframework.util.Assert;
 
-/**
- * Created by g.dromer on 10/07/2014.
- */
 public class Hob {
 
-    private Map map ;
-    private Double temperature ;
+    private int cookingPower ; // puissance de cuisson
+    private PowerType powerTypeFire ; // type d'alimentation
+    private Temperature temperature ;
+    private Boolean hotAlert = false ;
     private boolean working = false ;
 
-    public void addPowerTypeFire(Integer fireNumber, PowerType powerTypeFire){
-        map.put(fireNumber, powerTypeFire) ;
+    public Hob(int cookingPower, PowerType powerTypeFire, Temperature temperature, Boolean hotAlert, boolean working) {
+        Assert.isTrue(temperature.getTemperature() >= 0d, "The minimal temperature is 0");
+        Assert.isTrue(temperature.getTemperature() <= 200d, "The maximal temperature is 350");
+        temperature.setHotAlert(35d);
+        this.cookingPower = cookingPower;
+        this.powerTypeFire = powerTypeFire;
+        this.temperature = temperature;
+        this.hotAlert = hotAlert;
+        this.working = working;
     }
 
-    public Map getMap() {
-        return map ;
+    public int getPowerIndex() {
+        return cookingPower;
     }
 
-    public void modifyMap(int fireKey, PowerType powerType) {
-        map.put(fireKey, powerType) ;
+    public void setPowerIndex(int powerIndex) {
+        this.cookingPower = powerIndex;
+    }
+
+    public PowerType getPowerTypeFire() {
+        return powerTypeFire;
+    }
+
+    public void setPowerTypeFire(PowerType powerTypeFire) {
+        this.powerTypeFire = powerTypeFire;
+    }
+
+    public Boolean getHotAlert() {
+        return hotAlert;
     }
 
     public boolean isWorking() {
@@ -30,4 +48,5 @@ public class Hob {
     public void setWorking(boolean working) {
         this.working = working;
     }
+
 }
