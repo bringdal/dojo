@@ -4,9 +4,9 @@ public class Item {
 
     private String brand;
     private String name ;
-    private itemType type ;
+    private ItemType type ;
 
-    public Item(String brand, String name, itemType type) {
+    public Item(String brand, String name, ItemType type) {
         this.brand = brand;
         this.name = name;
         this.type = type;
@@ -28,11 +28,11 @@ public class Item {
         this.name = name;
     }
 
-    public itemType getType() {
+    public ItemType getType() {
         return type;
     }
 
-    public void setType(itemType type) {
+    public void setType(ItemType type) {
         this.type = type;
     }
 

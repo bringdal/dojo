@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+
+    <!--<filter>-->
+        <!--<filter-name>CharsetFilter</filter-name>-->
+        <!--<filter-class>com.oodrive.certeurope.certiedition.utils.CharsetFilter</filter-class>-->
+        <!--<init-param>-->
+            <!--<param-name>requestEncoding</param-name>-->
+            <!--<param-value>UTF-8</param-value>-->
+        <!--</init-param>-->
+    <!--</filter>-->
+
+    <!--<filter-mapping>-->
+        <!--<filter-name>CharsetFilter</filter-name>-->
+        <!--<url-pattern>/*</url-pattern>-->
+    <!--</filter-mapping>-->
+
+    <!--<servlet>-->
+        <!--<servlet-name>dojo</servlet-name>-->
+        <!--<servlet-class>com.certeurope.certcommons.confcheck.CustomDispatcherServlet</servlet-class>-->
+        <!--<load-on-startup>1</load-on-startup>-->
+    <!--</servlet>-->
+
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>dojo</servlet-name>-->
+        <!--<url-pattern>/services/*</url-pattern>-->
+    <!--</servlet-mapping>-->
+
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>default</servlet-name>-->
+        <!--<url-pattern>/static/*</url-pattern>-->
+    <!--</servlet-mapping>-->
+
+    <!--<servlet>-->
+        <!--<servlet-name>StaticServlet</servlet-name>-->
+        <!--<jsp-file>/index.html</jsp-file>-->
+    <!--</servlet>-->
+
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>StaticServlet</servlet-name>-->
+        <!--<url-pattern>/*</url-pattern>-->
+    <!--</servlet-mapping>-->
+
+
+    <context-param>
+        <param-name>light:administration:base-url</param-name>
+        <param-value>/admin</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>light:administration:security</param-name>
+        <param-value>true</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>light:administration:base-package</param-name>
+        <param-value>[package with @Administration configurations, ex.: org.lightadmin.demo.config]</param-value>
+    </context-param>
+
+</web-app>

@@ -2,20 +2,30 @@ package data;
 
 public class Temperature {
 
-    private Double temperature ;
+    private Double value;
+    private Double hotAlertTemperature ;
     private Boolean hotAlert = false ;
 
-    public Temperature(Double temperature, Boolean hotAlert) {
-        this.temperature = temperature;
+    public Temperature(Double value, Boolean hotAlert) {
+        this.value = value;
         this.hotAlert = hotAlert;
     }
 
-    public Double getTemperature() {
-        return temperature;
+    public Double getValue() {
+        return value;
     }
 
-    public void setTemperature(Double temperature) {
-        this.temperature = temperature;
+    public void setValue(Double value) {
+        setHotAlert(value);
+        this.value = value;
+    }
+
+    public Double getHotAlertTemperature() {
+        return hotAlertTemperature;
+    }
+
+    public void setHotAlertTemperature(Double hotAlertTemperature) {
+        this.hotAlertTemperature = hotAlertTemperature;
     }
 
     public Boolean getHotAlert() {
@@ -23,8 +33,9 @@ public class Temperature {
     }
 
     public void setHotAlert(Double temperature) {
-        if (this.temperature >= temperature) {
+        if (this.value >= temperature) {
             this.hotAlert = true;
         }
+        this.hotAlert = false;
     }
 }

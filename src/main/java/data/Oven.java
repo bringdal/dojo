@@ -1,6 +1,9 @@
 package data;
 
+import org.joda.time.DateTime;
 import org.springframework.util.Assert;
+
+import java.sql.Timestamp;
 
 public class Oven {
 
@@ -8,16 +11,19 @@ public class Oven {
     private BakeType bakeType ;
     private PowerType powerType ;
     private Temperature temperature ;
+    private DateTime date;
+    private Timestamp timer;
+    private Boolean ring = false ;
+    private int thermostat = 0 ;
     private boolean working = false ;
+    private Product product ;
 
-    public Oven(String brand, BakeType bakeType, PowerType powerType, Temperature temperature, boolean working) {
-        Assert.isTrue(temperature.getTemperature() >= 0d, "The minimal temperature is 0");
-        Assert.isTrue(temperature.getTemperature() <= 350d, "The maximal temperature is 350");
-        temperature.setHotAlert(80d);
+    public Oven(String brand, BakeType bakeType, PowerType powerType, boolean working) {
         this.brand = brand;
+        this.date = new DateTime();
         this.bakeType = bakeType;
         this.powerType = powerType;
-        this.temperature = temperature;
+        temperature.setHotAlert(80d);
         this.working = working;
     }
 
@@ -50,7 +56,30 @@ public class Oven {
     }
 
     public void setTemperature(Temperature temperature) {
+
+        Assert.isTrue(temperature.getValue() >= 0d, "The minimal temperature is 0");
+        Assert.isTrue(temperature.getValue() <= 350d, "The maximal temperature is 350");
         this.temperature = temperature;
+    }
+
+    public DateTime getDate() {
+        return date;
+    }
+
+    public Timestamp getTimer() {
+        return timer;
+    }
+
+    public void setTimer(Timestamp timer) {
+        this.timer = timer;
+    }
+
+    public int getThermostat() {
+        return thermostat;
+    }
+
+    public void setThermostat(int thermostat) {
+        this.thermostat = thermostat;
     }
 
     public boolean isWorking() {
@@ -59,5 +88,25 @@ public class Oven {
 
     public void setWorking(boolean working) {
         this.working = working;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void putProduct(Product product) {
+        this.product = product;
+    }
+
+    public void removeProduct() {
+        this.product = null;
+    }
+
+    public Boolean getRing() {
+        return ring;
+    }
+
+    private void setRing() {
+        this.ring = true;
     }
 }

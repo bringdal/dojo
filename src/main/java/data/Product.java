@@ -1,8 +1,7 @@
 package data;
 
-import com.sun.jmx.snmp.Timestamp;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 public class Product {
 
@@ -11,13 +10,26 @@ public class Product {
     private int floor ;
     private String name ;
     private ProductType productType ;
+    private Temperature cookingTemperature ;
+    private Temperature conservationTemperature ;
+    private Timestamp cookingTime ;
 
-    public Product(Boolean bio, Timestamp dlc, int floor, String name, ProductType productType) {
+    public Product(Boolean bio, Timestamp dlc, String name, ProductType productType) {
+        this.bio = bio;
+        this.dlc = dlc;
+        this.name = name;
+        this.productType = productType;
+    }
+
+    public Product(Boolean bio, Timestamp dlc, int floor, String name, ProductType productType, Temperature cookingTemperature, Temperature conservationTemperature, Timestamp cookingTime) {
         this.bio = bio;
         this.dlc = dlc;
         this.floor = floor;
         this.name = name;
         this.productType = productType;
+        this.cookingTemperature = cookingTemperature;
+        this.conservationTemperature = conservationTemperature;
+        this.cookingTime = cookingTime;
     }
 
     public Boolean getBio() {
@@ -28,8 +40,8 @@ public class Product {
         this.bio = bio;
     }
 
-    public Date getDlc() {
-        return dlc.getDate();
+    public Timestamp getDlc() {
+        return dlc ;
     }
 
     public void setDlc(Timestamp dlc) {
@@ -58,5 +70,30 @@ public class Product {
 
     public void setProductType(ProductType productType) {
         this.productType = productType;
+    }
+
+
+    public Temperature getCookingTemperature() {
+        return cookingTemperature;
+    }
+
+    public void setCookingTemperature(Temperature cookingTemperature) {
+        this.cookingTemperature = cookingTemperature;
+    }
+
+    public Temperature getConservationTemperature() {
+        return conservationTemperature;
+    }
+
+    public void setConservationTemperature(Temperature conservationTemperature) {
+        this.conservationTemperature = conservationTemperature;
+    }
+
+    public Timestamp getCookingTime() {
+        return cookingTime;
+    }
+
+    public void setCookingTime(Timestamp cookingTime) {
+        this.cookingTime = cookingTime;
     }
 }

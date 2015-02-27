@@ -5,5 +5,6 @@ public enum ProductType {
     FRUITS,
     MEET,
     FISH,
-    YOGURT
+    YOGURT,
+
 }
