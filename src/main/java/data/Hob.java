@@ -4,15 +4,15 @@ import org.springframework.util.Assert;
 
 public class Hob {
 
-    private int cookingPower ; // puissance de cuisson
+    private Integer cookingPower ; // puissance de cuisson
     private PowerType powerTypeFire ; // type d'alimentation
     private Temperature temperature ;
     private Boolean hotAlert = false ;
     private boolean working = false ;
 
-    public Hob(int cookingPower, PowerType powerTypeFire, Temperature temperature, Boolean hotAlert, boolean working) {
-        Assert.isTrue(temperature.getTemperature() >= 0d, "The minimal temperature is 0");
-        Assert.isTrue(temperature.getTemperature() <= 200d, "The maximal temperature is 350");
+    public Hob(Integer cookingPower, PowerType powerTypeFire, Temperature temperature, Boolean hotAlert, boolean working) {
+        Assert.isTrue(temperature.getValue() >= 0d, "The minimal temperature is 0");
+        Assert.isTrue(temperature.getValue() <= 200d, "The maximal temperature is 350");
         temperature.setHotAlert(35d);
         this.cookingPower = cookingPower;
         this.powerTypeFire = powerTypeFire;
@@ -25,7 +25,7 @@ public class Hob {
         return cookingPower;
     }
 
-    public void setPowerIndex(int powerIndex) {
+    public void setPowerIndex(Integer powerIndex) {
         this.cookingPower = powerIndex;
     }
 
@@ -38,7 +38,7 @@ public class Hob {
     }
 
     public Boolean getHotAlert() {
-        return hotAlert;
+        return temperature.getHotAlert();
     }
 
     public boolean isWorking() {

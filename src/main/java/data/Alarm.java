@@ -2,14 +2,7 @@ package data;
 
 public class Alarm {
 
-    private boolean screaming  ;
-
-    public Alarm() {
-        this.screaming = false;
-    }
-    public Alarm(boolean screaming) {
-        this.screaming = screaming;
-    }
+    private boolean screaming = false ;
 
     public boolean isScreaming() {
         return screaming;

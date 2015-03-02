@@ -2,7 +2,9 @@ package data;
 
 import org.springframework.util.Assert;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Refrigerator {
@@ -12,31 +14,31 @@ public class Refrigerator {
     private Freezer freezer ;
     private List<Product> products = new ArrayList<Product>();
     private int space = 50;
+    private int floors ;
     private boolean spaceAlert = false;
     private boolean working = false ;
 
-    public Refrigerator(PowerType powerType, Temperature temperature, List<Product> products, int space, boolean working) {
+    public Refrigerator(PowerType powerType, Temperature temperature, List<Product> products, int space, boolean working, int floors) {
         this.powerType = powerType;
-        Assert.isTrue(temperature.getTemperature() >= -30d, "The minimal temperature is 0");
-        Assert.isTrue(temperature.getTemperature() <= 0d, "The maximal temperature is 350");
+        Assert.isTrue(temperature.getValue() >= -30d, "The minimal temperature is 0");
+        Assert.isTrue(temperature.getValue() <= 0d, "The maximal temperature is 350");
         temperature.setHotAlert(10d);
         this.products = products;
         this.space = space;
         this.working = working;
+        this.floors = floors;
     }
 
-    public Refrigerator(PowerType powerType, Temperature temperature, Freezer freezer, List<Product> products, int space, boolean working) {
+    public Refrigerator(PowerType powerType, Temperature temperature, Freezer freezer, List<Product> products, int space, boolean working, int floors) {
         this.powerType = powerType ;
-        Assert.isTrue(temperature.getTemperature() >= -30d, "The minimal temperature is 0");
-        Assert.isTrue(temperature.getTemperature() <= 0d, "The maximal temperature is 350");
+        Assert.isTrue(temperature.getValue() >= -30d, "The minimal temperature is 0");
+        Assert.isTrue(temperature.getValue() <= 0d, "The maximal temperature is 350");
         temperature.setHotAlert(10d);
-        Assert.isTrue(freezer.getTemperature() >= -30d, "The minimal temperature is 0");
-        Assert.isTrue(freezer.getTemperature() <= 0d, "The maximal temperature is 350");
-        temperature.setHotAlert(-10d);
         this.freezer = freezer;
         this.products = products;
         this.space = space;
         this.working = working;
+        this.floors = floors;
     }
 
     public PowerType getPowerType() {
@@ -67,10 +69,12 @@ public class Refrigerator {
         return products;
     }
 
-    public void addProduct(Product product) {
+    public void addProduct(Product product, int floor) {
         if (products.size() >= space){
             setSpaceAlert(true) ;
         }
+        Assert.isTrue(floor > getFloors(), "Not enough floors ");
+        product.setFloor(floor);
         this.products.add(product);
     }
 
@@ -93,6 +97,10 @@ public class Refrigerator {
         return spaceAlert;
     }
 
+    public int getFloors() {
+        return floors;
+    }
+
     public void setSpaceAlert(boolean spaceAlert) {
         this.spaceAlert = spaceAlert;
     }
@@ -104,4 +112,14 @@ public class Refrigerator {
     public void setWorking(boolean working) {
         this.working = working;
     }
+
+    private boolean checkDLC(List<Product> products){
+        for(int i = 0; i < products.size(); i++){
+            if ( products.get(i).getDlc().after(new Timestamp(new Date().getTime())) ) {
+                return false;
+            }
+        }
+        return true ;
+    }
+
 }
