@@ -5,11 +5,13 @@ public class Item {
     private String brand;
     private String name ;
     private ItemType type ;
+    private Coordinate coordinate ;
 
-    public Item(String brand, String name, ItemType type) {
+    public Item(String brand, String name, ItemType type, Coordinate coordinate) {
         this.brand = brand;
         this.name = name;
         this.type = type;
+        this.coordinate = coordinate;
     }
 
     public String getBrand() {
@@ -36,4 +38,11 @@ public class Item {
         this.type = type;
     }
 
+    public Coordinate getCoordinate() {
+        return coordinate;
+    }
+
+    public void setCoordinate(Coordinate coordinate) {
+        this.coordinate = coordinate;
+    }
 }

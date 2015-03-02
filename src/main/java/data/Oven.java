@@ -13,6 +13,7 @@ public class Oven {
     private Temperature temperature ;
     private DateTime date;
     private Timestamp timer;
+    private Boolean endOfCooking = null ;
     private Boolean ring = false ;
     private int thermostat = 0 ;
     private boolean working = false ;
@@ -72,6 +73,21 @@ public class Oven {
 
     public void setTimer(Timestamp timer) {
         this.timer = timer;
+    }
+
+    public void startTimer() throws Exception{
+        Assert.isTrue(this.timer != null, "il n'y a pas de timer");
+        Thread.sleep(this.timer.getTime());
+        setTimer(null) ;
+        setEndOfCooking(true) ;
+    }
+
+    public Boolean getEndOfCooking() {
+        return endOfCooking;
+    }
+
+    public void setEndOfCooking(Boolean endOfCooking) {
+        this.endOfCooking = endOfCooking;
     }
 
     public int getThermostat() {

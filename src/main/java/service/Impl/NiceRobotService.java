@@ -1,13 +1,20 @@
-package data;
+package service.Impl;
 
+import data.Oven;
+import data.Product;
+import data.Refrigerator;
+import data.Temperature;
+import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
+import service.NiceRobotServiceImpl;
 
 import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
-public class niceRobot {
+@Service
+public class NiceRobotService implements NiceRobotServiceImpl {
 
     private Product product ;
     private Refrigerator refrigerator ;
@@ -16,39 +23,33 @@ public class niceRobot {
     private Time time ;
     private int thermostat ;
 
-    public niceRobot(Room room, Product product, Refrigerator refrigerator, Oven oven, Date date, Time time, int thermostat) {
-        this.product = product;
-        this.refrigerator = refrigerator;
-        this.oven = oven;
-        this.date = date;
-        this.time = time;
-        this.thermostat = thermostat;
-    }
-
+    @Override
     public void putProductInRefrigerator(Product product, Refrigerator refrigerator){
-        Assert.isTrue(refrigerator.isSpaceAlert(),"Not enought place, you have to eat a little more");
+        Assert.isTrue(refrigerator.isSpaceAlert(),"Not enough place, you have to eat a little more");
         Random rand = new Random();
         int randomFloor = rand.nextInt((refrigerator.getFloors() - 1) + 1) + 1 ;
         refrigerator.addProduct(product,randomFloor);
     }
 
-    public void putProductFromRefrigeratorInOven(Product product, Refrigerator refrigerator, Oven oven) throws Exception{
+    @Override
+    public void putProductFromRefrigeratorInOvenAndStartCooking(Product product, Refrigerator refrigerator, Oven oven) throws Exception{
         int productId = getProductIdInProductsRefrigerator(product, refrigerator) ;
 
         Temperature ovenTemperature = oven.getTemperature() ;
         oven.setTemperature(product.getCookingTemperature());
-        oven.setTimer(product.getCookingTime());
         while(oven.getTemperature().getValue() < product.getCookingTemperature().getValue()){
             Thread.sleep(60000);
             continue ;
         }
         refrigerator.getProducts().remove(productId) ;
         oven.putProduct(product);
-
+        oven.setTimer(product.getCookingTime());
+        oven.startTimer();
     }
 
+    @Override
     public void ovenMonitoring(){
-        oven.getTimer()
+        oven.getTimer() ;
     }
 
     private int getProductIdInProductsRefrigerator(Product product, Refrigerator refrigerator) throws Exception{
