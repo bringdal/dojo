@@ -44,12 +44,30 @@
             <version>${spring.version}</version>
         </dependency>
 
-        <!--  lightadmin  -->
+        <!--  testNg  -->
         <dependency>
-            <groupId>org.lightadmin</groupId>
-            <artifactId>lightadmin</artifactId>
-            <version>1.0.1.RELEASE</version>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.8.8</version>
+            <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>1.9.5</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.7</version>
+        </dependency>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.3</version>
+        </dependency>
+
 
     </dependencies>
 

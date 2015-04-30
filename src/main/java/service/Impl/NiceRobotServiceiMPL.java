@@ -1,4 +1,4 @@
-package service.Impl;
+package service.impl;
 
 import data.Oven;
 import data.Product;
@@ -6,7 +6,7 @@ import data.Refrigerator;
 import data.Temperature;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
-import service.NiceRobotServiceImpl;
+import service.NiceRobotService;
 
 import java.sql.Time;
 import java.util.Date;
@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Random;
 
 @Service
-public class NiceRobotService implements NiceRobotServiceImpl {
+public class NiceRobotServiceImpl implements NiceRobotService {
 
     private Product product ;
     private Refrigerator refrigerator ;

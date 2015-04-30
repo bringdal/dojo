@@ -8,7 +8,6 @@ public class Lamp {
     private boolean working = false ;
 
     public Lamp(Bulb bulb, boolean power, LampType type, int floor, Room room) {
-        bulb.setSwitchedOn(power);
         this.bulb = bulb ;
         this.power = power;
         this.type = type;

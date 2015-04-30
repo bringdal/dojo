@@ -13,15 +13,15 @@ public class Refrigerator {
     private Temperature temperature ;
     private Freezer freezer ;
     private List<Product> products = new ArrayList<Product>();
-    private int space = 50;
+    private int space ;
     private int floors ;
     private boolean spaceAlert = false;
     private boolean working = false ;
 
     public Refrigerator(PowerType powerType, Temperature temperature, List<Product> products, int space, boolean working, int floors) {
         this.powerType = powerType;
-        Assert.isTrue(temperature.getValue() >= -30d, "The minimal temperature is 0");
-        Assert.isTrue(temperature.getValue() <= 0d, "The maximal temperature is 350");
+        Assert.isTrue(temperature.getValue() >= -30d, "The minimal temperature is -30");
+        Assert.isTrue(temperature.getValue() <= 7d, "The maximal temperature is 7");
         temperature.setHotAlert(10d);
         this.products = products;
         this.space = space;

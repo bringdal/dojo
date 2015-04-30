@@ -10,17 +10,18 @@ public class Freezer {
     private PowerType powerType ;
     private Temperature temperature ;
     private List<Product> products = new ArrayList<Product>();
-    private int space = 50;
+    private int space;
     private boolean spaceAlert = false;
     private boolean working = false ;
 
-    public Freezer(PowerType powerType, Temperature temperature, List<Product> products, boolean working) {
+    public Freezer(PowerType powerType, Temperature temperature, List<Product> products, int space, boolean working) {
         Assert.isTrue(getTemperature().getValue() >= -30d, "The minimal temperature is 0");
         Assert.isTrue(getTemperature().getValue() <= 0d, "The maximal temperature is 350");
         getTemperature().setHotAlert(-10d);
         this.working = working;
         this.powerType = powerType;
         this.temperature = temperature;
+        this.space = space;
         this.products = products;
     }
 
@@ -61,6 +62,7 @@ public class Freezer {
     public void setProducts(List<Product> products) {
         this.products = products;
     }
+
     public boolean isSpaceAlert() {
         return spaceAlert;
     }

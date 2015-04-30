@@ -1,11 +1,11 @@
-package service.Impl;
+package service.impl;
 
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
-import service.HomeServiceImpl;
+import service.HomeService;
 
 @Service
-public class HomeService implements HomeServiceImpl {
+public class HomeServiceImpl implements HomeService {
 
     @Override
     public boolean isLightsSwitchedOff() {
